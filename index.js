@@ -11,7 +11,9 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
-const CONNECTION_URL = process.env.CONNECTION_URL;
+// const CONNECTION_URL = process.env.CONNECTION_URL;
+const CONNECTION_URL = 'mongodb://127.0.0.1:27017/test';
+// const CONNECTION_URL ='mongodb+srv://okenjaev2192:obid123456789@cluster0.mm5iggm.mongodb.net/test'
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
@@ -20,8 +22,6 @@ mongoose
     )
   )
   .catch((error) => console.log(`${error} did not connect`));
-// const CONNECTION_URL ='mongodb+srv://okenjaev2192:obid123456789@cluster0.mm5iggm.mongodb.net/test'
-// const CONNECTION_URL = 'mongodb://127.0.0.1:27017/test';
 
 // mongoose.set('useFindAndModify', false);
 
